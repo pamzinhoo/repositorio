@@ -2,22 +2,18 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://kit.fontawesome.com/3f63c9a1ef.js" crossorigin="anonymous"></script>
     <title>Maship</title>
     <style>
         @import url("https://fonts.googleapis.com/css2?family=Audiowide&family=Bebas+Neue&family=Exo+2:ital,wght@0,100..900;1,100..900&family=Montserrat&family=Noto+Sans+JP:wght@100..900&family=Open+Sans:ital,wght@0,500;1,500&family=Orbitron:wght@400..900&family=Rajdhani:wght@300;400;500;600;700&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:wght@300&display=swap");
-        @import url("https://fonts.googleapis.com/css2?family=Audi Larryowide&family=Bebas+Neue&family=Exo+2:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat&family=Noto+Sans+JP:wght@100..900&family=Open+Sans:ital,wght@0,500;1,500&family=Orbitron:wght@400..900&family=Rajdhani:wght@300;400;500;600;700&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:wght@300&display=swap");
-        @import url("https://fonts.googleapis.com/css2?family=Audiowide&family=Bebas+Neue&family=Exo+2:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:wght@700&family=Noto+Sans+JP:wght@100..900&family=Open+Sans:ital,wght@0,500;1,500&family=Orbitron:wght@400..900&family=Rajdhani:wght@300;400;500;600;700&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:wght@300&display=swap");
-        @import url("https://fonts.googleapis.com/css2?family=Audiowide&family=Bebas+Neue&family=Exo+2:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:wght@700&family=Noto+Sans+JP:wght@100..900&family=Open+Sans:ital,wght@0,500;1,500&family=Orbitron:wght@400..900&family=Rajdhani:wght@300;400;500;600;700&family=Raleway:ital,wght@0,800;1,800&family=Roboto:wght@300&display=swap");
-        @import url("https://fonts.googleapis.com/css2?family=Audiowide&family=Bebas+Neue&family=Exo+2:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:wght@700&family=Noto+Sans+JP:wght@100..900&family=Open+Sans:ital,wght@0,500;1,500&family=Orbitron:wght@400..900&family=Oswald:wght@200..700&family=Rajdhani:wght@300;400;500;600;700&family=Raleway:ital,wght@0,800;1,800&family=Roboto:wght@300&display=swap");
-        @import url("https://fonts.googleapis.com/css2?family=Audiowide&family=Bebas+Neue&family=Exo+2:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:wght@700&family=Noto+Sans+JP:wght@100..900&family=Open+Sans:ital,wght@0,700;1,700&family=Orbitron:wght@400..900&family=Oswald:wght@200..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rajdhani:wght@300;400;500;600;700&family=Raleway:ital,wght@0,800;1,800&family=Roboto:wght@300&display=swap");
         @import url("https://fonts.googleapis.com/css2?family=Audiowide&family=Bebas+Neue&family=Exo+2:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:wght@700&family=Noto+Sans+JP:wght@100..900&family=Open+Sans:ital,wght@0,700;1,700&family=Orbitron:wght@400..900&family=Oswald:wght@200..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rajdhani:wght@300;400;500;600;700&family=Raleway:ital,wght@0,800;1,800&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto:wght@300&display=swap");
 
         :root {
             --text-color: white;
         }
 
+        /* Default styles for desktop */
         body {
             background-color: black;
             color: var(--text-color);
@@ -25,17 +21,12 @@
             max-width: 70%;
             margin: auto;
             font-size: 16px;
+            min-height: 100vh;
         }
 
         img {
             max-width: 100%;
             height: auto;
-        }
-
-        @media screen and (max-width: 768px) {
-            body {
-                font-size: 16px;
-            }
         }
 
         header {
@@ -44,18 +35,17 @@
             justify-content: space-between;
             padding: 1rem;
             align-items: center;
-            height: 5Crypto
         }
 
         header input {
-            width: 400px;
+            width: 300px;
             border-radius: 10px;
             height: 2rem;
         }
 
         header img {
-            width: 150px;
-            height: 150px;
+            width: 130px;
+            height: 130px;
         }
 
         form button {
@@ -162,7 +152,7 @@
         video {
             width: 70vw;
             margin: auto;
-            height: auto;
+            height: 100vh;
             border: none;
             outline: none;
         }
@@ -349,21 +339,154 @@
             justify-content: center;
             align-items: center;
         }
+
+        /* Mobile-specific adjustments */
+        @media screen and (max-width: 768px) {
+            body {
+                width: 100%;
+                max-width: 100%;
+                font-size: 14px;
+            }
+
+            header {
+                
+                padding: 0.5rem;
+            }
+
+            header input {
+                width: 100%;
+                max-width: 100%;
+                margin: 0.5rem 0;
+            }
+
+            header img {
+                width: 100px;
+                height: 100px;
+            }
+
+            .login {
+                gap: 8px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .ul-nav {
+                gap: 0.5rem;
+                flex-wrap: wrap;
+                font-size: 14px;
+            }
+
+            video {
+                width: 100%;
+            }
+
+            .products {
+                flex-direction: column;
+            }
+
+            .products p {
+                font-size: 14px;
+                line-height: 1.4rem;
+            }
+
+            .text-content-main,
+            .title-category {
+                font-size: 24px;
+            }
+
+            .content-main-section {
+                width: 100%;
+            }
+
+            .content-main {
+                width: 150px;
+            }
+
+            .content-main img {
+                width: 100%;
+                height: 150px;
+                object-fit: cover;
+            }
+
+            .category-list {
+                flex-wrap: wrap;
+                gap: 10px;
+                justify-content: center;
+            }
+
+            .category-list li {
+                width: 100px;
+                height: 40px;
+            }
+
+            .category-list i {
+                font-size: 20px;
+            }
+
+            .container-promon {
+                flex-direction: column;
+                margin: 100px 0;
+                gap: 20px;
+            }
+
+            .container-promon img {
+                width: 100%;
+                max-width: 300px;
+                height: auto;
+            }
+
+            .container-promon h1 {
+                font-size: 24px;
+                text-align: center;
+            }
+
+            .container-promon h2 {
+                font-size: 16px;
+                text-align: center;
+            }
+
+            address {
+                text-align: center;
+                padding: 1rem;
+            }
+
+            iframe {
+                height: 300px;
+                margin-top: 2rem;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .content-main {
+                width: 120px;
+            }
+
+            .content-main img {
+                height: 120px;
+            }
+
+            .i {
+                font-size: 16px;
+            }
+
+            .category-list li {
+                width: 80px;
+                height: 40px;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="header-sticky">
         <header>
-            <img src="logo sem fundo.png" alt="logo da maship" />
+            <img src="wapp.jpg" alt="logo da maship" />
             <form id="searchForm">
                 <label for="searchInput"></label>
                 <input type="search" name="searchQuery" id="searchInput" placeholder="Pesquisar produtos..." />
-                <button type="submit">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                </button>
+                
             </form>
             <div class="login">
-                <i class="fa-regular fa-circle-user user"></i>
+                
                 <span id="username-display" class="username"></span>
                 <button id="logout-btn" class="logout-btn" style="display: none;">Sair</button>
                 <a href="login.html" id="login-link">
@@ -495,7 +618,7 @@
         </article>
     </section>
 
-    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d58578.40504604505!2d-51.922780912719695!3d-23.418936641435845!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1spt-PT!2sbr!4v1742759444808!5m2!1spt-PT!2sbr" width="600" height="450" style="border: 0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d58578.40504604505!2d-51.922780912719695!3d-23.418936641435845!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1spt-PT!2sbr!4v1742759444808!5m2!1spt-PT!2sbr" style="border: 0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     <address id="address">
         <p>Av. da Liberdade, 1001</p>
         <p>Tel: +351 21 123 456</p>
