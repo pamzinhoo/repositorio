@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://kit.fontawesome.com/3f63c9a1ef.js" crossorigin="anonymous"></script>
+    <title>Maship</title>
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Audiowide&family=Bebas+Neue&family=Exo+2:ital,wght@0,100..900;1,100..900&family=Montserrat&family=Noto+Sans+JP:wght@100..900&family=Open+Sans:ital,wght@0,500;1,500&family=Orbitron:wght@400..900&family=Rajdhani:wght@300;400;500;600;700&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:wght@300&display=swap");
+        @import url("https://fonts.googleapis.com/css2?family=Audiowide&family=Bebas+Neue&family=Exo+2:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:wght@700&family=Noto+Sans+JP:wght@100..900&family=Open+Sans:ital,wght@0,700;1,700&family=Orbitron:wght@400..900&family=Oswald:wght@200..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rajdhani:wght@300;400;500;600;700&family=Raleway:ital,wght@0,800;1,800&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto:wght@300&display=swap");
+
+        :root {
+            --text-color: white;
+        }
+
+        /* Default styles for desktop */
+        body {
+            background-color: black;
+            color: var(--text-color);
+            width: 70%;
+            max-width: 70%;
+            margin: auto;
+            font-size: 16px;
+            min-height: 100vh;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        header {
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            padding: 1rem;
+            align-items: center;
+        }
+
+        header input {
+            width: 300px;
+            border-radius: 10px;
+            height: 2rem;
+        }
+
+        header img {
+            width: 130px;
+            height: 130px;
+        }
+
+        form button {
+            border-radius: 1em;
+            height: 2rem;
+            transition: transform 0.25s ease-in-out;
+        }
+
+        form button:hover {
+            transform: scale(1.1);
+            cursor: pointer;
+        }
+
+        .login {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .login i {
+            font-size: 1.3rem;
+            transition: transform 0.25s ease-in-out;
+            color: white;
+        }
+
+        .login a {
+            color: var(--text-color);
+            text-decoration: none;
+        }
+
+        .login i:hover {
+            transform: scale(1.1);
+            cursor: pointer;
+        }
+
+        .login a:hover {
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        .username {
+            color: #333;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+        }
+
+        .logout-btn {
+            background: none;
+            border: none;
+            color: #007bff;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .logout-btn:hover {
+            text-decoration: underline;
+        }
+
+        .cart-icon {
+            position: relative;
+            display: inline-block;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background-color: red;
+            color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-family: "Roboto", sans-serif;
+        }
+
+        .ul-nav {
+            display: flex;
+            list-style-type: none;
+            gap: 1rem;
+            justify-content: space-evenly;
+            padding: 6px;
+            font-family: "Roboto", sans-serif;
+            font-weight: 300;
+        }
+
+        .ul-nav li:hover {
+            text-decoration: underline;
+        }
+
+        .ul-nav li {
+            text-transform: uppercase;
+            color: white;
+        }
+
+        .ul-nav li a {
+            text-decoration: none;
+            color: white;
+        }
+
+        video {
+            width: 100%;
+            margin: auto;
+            height: auto;
+            border: none;
+            outline: none;
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 2s ease-out, transform 2s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .products {
+            display: flex;
+            align-items: center;
+            margin-top: 2rem;
+        }
+
+        .products p {
+            line-height: 2rem;
+            font-size: 18px;
+            text-align: center;
+            font-family: "Raleway", sans-serif;
+            font-weight: 300;
+        }
+
+        .text-content-main {
+            font-size: 40px;
+            text-transform: uppercase;
+            justify-content: center;
+            display: flex;
+            padding: 1rem;
+            margin-top: 2rem;
+            font-family: "Oswald", sans-serif;
+            font-weight: 600;
+            margin-top: 100px;
+        }
+
+        .content-main-section {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            max-width: 100%;
+            margin: 0 auto;
+            width: 854px;
+        }
+
+        .content-main {
+            background-color: rgb(10, 10, 10);
+            transition: transform 0.25s ease-in-out;
+            border-radius: 10px 10px 5px 5px;
+            width: 200px;
+            text-align: center;
+        }
+
+        .content-main img {
+            width: 200px;
+            height: 200px;
+        }
+
+        .content-main p {
+            padding: 0;
+            margin: 0;
+            font-family: "Roboto", sans-serif;
+            font-weight: 400;
+        }
+
+        .i {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px;
+            font-size: 20px;
+        }
+
+        .content-main:hover {
+            transform: scale(1.1);
+            background-color: rgb(10, 10, 10);
+        }
+
+        h2 {
+            color: white;
+        }
+
+        p {
+            color: var(--text-color);
+        }
+
+        .title-category {
+            display: flex;
+            justify-content: center;
+            text-transform: uppercase;
+            font-size: 40px;
+            font-family: "Oswald", sans-serif;
+            font-weight: 600;
+        }
+
+        .category {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            padding: 16px;
+            margin: 12px;
+        }
+
+        .category-list {
+            display: flex;
+            gap: 16px;
+            list-style-type: none;
+            padding: 16px;
+        }
+
+        .category-list li {
+            background-color: rgb(5, 5, 5);
+            padding: 16px;
+            width: 150px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+            transition: transform 0.25s ease-in-out;
+        }
+
+        .category-list li:hover {
+            transform: scale(1.1);
+            background-color: rgb(10, 10, 10);
+        }
+
+        .category-list i {
+            font-size: 25px;
+            color: white;
+        }
+
+        a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .container-promon {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: auto;
+            margin-top: 300px;
+            margin-bottom: 300px;
+            gap: 200px;
+        }
+
+        .container-promon img {
+            width: 500px;
+            height: 500px;
+        }
+
+        .container-promon h1 {
+            font-size: 40px;
+            margin: 0;
+            padding: 0;
+            font-family: "Poppins", sans-serif;
+            font-weight: 800;
+        }
+
+        .container-promon h2 {
+            font-size: 25px;
+            font-family: "Roboto", sans-serif;
+            font-weight: 400;
+        }
+
+        address {
+            text-align: right;
+        }
+
+        iframe {
+            width: 100%;
+            margin-top: 500px;
+        }
+
+        footer {
+            display: flex;
+            padding: 16px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Mobile-specific adjustments */
+        @media screen and (max-width: 768px) {
+            body {
+                width: 100%;
+                max-width: 100%;
+                font-size: 14px;
+            }
+
+            header {
+                
+                padding: 0.5rem;
+            }
+
+            header input {
+                width: 100%;
+                max-width: 100%;
+                margin: 0.5rem 0;
+            }
+
+            header img {
+                width: 100px;
+                height: 100px;
+            }
+
+            .login {
+                gap: 8px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .ul-nav {
+                gap: 0.5rem;
+                flex-wrap: wrap;
+                font-size: 14px;
+            }
+
+            
+
+            .products {
+                flex-direction: column;
+            }
+
+            .products p {
+                font-size: 14px;
+                line-height: 1.4rem;
+            }
+
+            .text-content-main,
+            .title-category {
+                font-size: 24px;
+            }
+
+            .content-main-section {
+                width: 100%;
+            }
+
+            .content-main {
+                width: 150px;
+            }
+
+            .content-main img {
+                width: 100%;
+                height: 150px;
+                object-fit: cover;
+            }
+
+            .category-list {
+                flex-wrap: wrap;
+                gap: 10px;
+                justify-content: center;
+            }
+
+            .category-list li {
+                width: 100px;
+                height: 40px;
+            }
+
+            .category-list i {
+                font-size: 20px;
+            }
+
+            .container-promon {
+                flex-direction: column;
+                margin: 100px 0;
+                gap: 20px;
+            }
+
+            .container-promon img {
+                width: 100%;
+                max-width: 300px;
+                height: auto;
+            }
+
+            .container-promon h1 {
+                font-size: 24px;
+                text-align: center;
+            }
+
+            .container-promon h2 {
+                font-size: 16px;
+                text-align: center;
+            }
+
+            address {
+                text-align: center;
+                padding: 1rem;
+            }
+
+            iframe {
+                height: 300px;
+                margin-top: 2rem;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .content-main {
+                width: 120px;
+            }
+
+            .content-main img {
+                height: 120px;
+            }
+
+            .i {
+                font-size: 16px;
+            }
+
+            .category-list li {
+                width: 80px;
+                height: 40px;
+            }
+        }
+    </style>
+    <link rel="icon" href="logo sem fundo.png">
+</head>
+<body>
+    <div class="header-sticky">
+        <header>
+            <img src="wapp.jpg" alt="logo da maship" />
+            <form id="searchForm">
+                <label for="searchInput"></label>
+                <input type="search" name="searchQuery" id="searchInput" placeholder="Pesquisar produtos..." />
+                
+            </form>
+            <div class="login">
+                
+                <span id="username-display" class="username"></span>
+                <button id="logout-btn" class="logout-btn" style="display: none;">Sair</button>
+                <a href="login.html" id="login-link">
+                    entre ou <br />
+                    cadastre-se
+                </a>
+                <a href="buy.html" class="cart-icon">
+                    <i class="fa-solid fa-bag-shopping"></i>
+                    <span id="cart-count" class="cart-count">0</span>
+                </a>
+            </div>
+        </header>
+        <article class="article-nav">
+            <ul class="ul-nav">
+                <li><a id="endereco" href="#">Endereço</a></li>
+                <li><a id="produto" href="#">Produtos</a></li>
+                <li><a id="promon" href="#">Ofertas</a></li>
+            </ul>
+        </article>
+    </div>
+
+    <article class="hero-video">
+        <div class="video-content">
+            <video preload="auto" autoplay muted name="media">
+                <source src="https://www.apple.com/newsroom/videos/videos-2024/autoplay/2024/09/apple-iphone-16-pro-light-and-durable-upgraded-design/large_2x.mp4" type="video/mp4" />
+                Seu navegador não suporta o elemento de vídeo.
+            </video>
+        </div>
+    </article>
+
+    <article class="article-products" id="iphone">
+        <div class="products">
+            <img class="fade-in" src="iphone sem fundo.png" alt="iphone sem fundo" loading="lazy" />
+            <p class="products-p">
+              CUPERTINO, CALIFÓRNIA, A Apple apresentou hoje o iPhone 16 Pro e o
+              iPhone 16 Pro Max, com telas maiores, novo Controle da Câmera para
+              acesso rápido ao sistema de câmera avançado, novas possibilidades
+              criativas com recursos inovadores de câmera Pro, gráficos
+              surpreendentes para jogos e muito mais, tudo com a potência do chip
+              A18 Pro. Graças à nova câmera Fusion de 48 MP com sensor quad-pixel
+              mais rápido para gravação de vídeo 4K Dolby Vision a 120 qps, os novos
+              modelos Pro alcançam a resolução e taxa de quadros mais altas até hoje
+              em um iPhone. Outros avanços incluem a nova câmera ultra-angular de 48
+              MP para fotos com resolução ainda maior, inclusive macro, câmera
+              teleobjetiva de 5x nos dois modelos Pro e microfones com qualidade de
+              estúdio que deixam o áudio mais realista nas gravações. A estrutura em
+              titânio de alta durabilidade é leve e resistente, com telas maiores,
+              as bordas mais finas em um produto Apple e um salto imenso em bateria.
+              E o iPhone 16 Pro Max oferece a maior duração de bateria até hoje em
+              um iPhone.
+            </p>
+        </div>
+        <h2 class="title-category">Categorias</h2>
+        <section class="category">
+            <ul class="category-list">
+                <li class="produtos"><a href="#headphones" aria-label="Fones de ouvido"><i class="fa-solid fa-headphones"></i></a></li>
+                <li class="produtos"><a href="#tv" aria-label="Televisão"><i class="fa-solid fa-tv"></i></a></li>
+                <li class="produtos"><a href="#tablets" aria-label="Tablets"><i class="fa-solid fa-tablet-screen-button"></i></a></li>
+                <li class="produtos"><a href="#tags" aria-label="Tags"><i class="fa-solid fa-tags"></i></a></li>
+            </ul>
+        </section>
+    </article>
+
+    <section id="promons" class="container-promon fade-in">
+        <article>
+            <h1>Mega promoção</h1>
+            <h2>Toda a loja <br /> com até 50%off</h2>
+        </article>
+        <img src="tv.png" alt="tv com desconto" />
+    </section>
+
+    <h2 id="products" class="text-content-main">Produtos</h2>
+    <section class="content-main-section fade-in">
+        <article class="content-main" id="produto1">
+            <img src="produto 3 sem fundo.png" alt="produto 1" />
+            <p>R$ 3.000,00</p>
+            <div class="i">
+                <a href=""><i class="fa-solid fa-cart-shopping"></i></a>
+                <a href=""><i class="fa-regular fa-heart"></i></a>
+            </div>
+        </article>
+        <article class="content-main" id="produto2">
+            <img src="produto 2 sem fundo.png" alt="produto 2" />
+            <p>R$ 6.890,00</p>
+            <div class="i">
+                <a href=""><i class="fa-solid fa-cart-shopping"></i></a>
+                <a href=""><i class="fa-regular fa-heart"></i></a>
+            </div>
+        </article>
+        <article class="content-main" id="produto3">
+            <img src="produto 10 sem fundo.png" alt="produto 3" />
+            <p>R$ 2.200,00</p>
+            <div class="i">
+                <a href=""><i class="fa-solid fa-cart-shopping"></i></a>
+                <a href=""><i class="fa-regular fa-heart"></i></a>
+            </div>
+        </article>
+        <article class="content-main" id="produto4">
+            <img src="produto 7 sem fundo.png" alt="produto 4" />
+            <p>R$ 5.512,00</p>
+            <div class="i">
+                <a href=""><i class="fa-solid fa-cart-shopping"></i></a>
+                <a href=""><i class="fa-regular fa-heart"></i></a>
+            </div>
+        </article>
+        <article class="content-main" id="produto5">
+            <img src="produto 9 sem fundo.png" alt="produto 5" />
+            <p>R$ 2.425,00</p>
+            <div class="i">
+                <a href=""><i class="fa-solid fa-cart-shopping"></i></a>
+                <a href=""><i class="fa-regular fa-heart"></i></a>
+            </div>
+        </article>
+        <article class="content-main" id="produto6">
+            <img src="produto 5 sem fundo.png" alt="produto 6" />
+            <p>R$ 425,00</p>
+            <div class="i">
+                <a href=""><i class="fa-solid fa-cart-shopping"></i></a>
+                <a href=""><i class="fa-regular fa-heart"></i></a>
+            </div>
+        </article>
+        <article class="content-main" id="produto7">
+            <img src="produto 6 sem fundo.png" alt="produto 7" />
+            <p>R$ 336,00</p>
+            <div class="i">
+                <a href=""><i class="fa-solid fa-cart-shopping"></i></a>
+                <a href=""><i class="fa-regular fa-heart"></i></a>
+            </div>
+        </article>
+        <article class="content-main" id="produto8">
+            <img src="bn10.png" alt="produto 8" />
+            <p>R$ 80,00</p>
+            <div class="i">
+                <a href=""><i class="fa-solid fa-cart-shopping"></i></a>
+                <a href=""><i class="fa-regular fa-heart"></i></a>
+            </div>
+        </article>
+    </section>
+
+    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d58578.40504604505!2d-51.922780912719695!3d-23.418936641435845!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1spt-PT!2sbr!4v1742759444808!5m2!1spt-PT!2sbr" style="border: 0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <address id="address">
+        <p>Av. da Liberdade, 1001</p>
+        <p>Tel: +351 21 123 456</p>
+        <p>Email: contato@gmail.com</p>
+    </address>
+    <footer>© Todos os direitos reservados 2020-2025</footer>
+
+    <script>
+        // Função para verificar se o usuário está logado
+        function isLoggedIn() {
+            return !!localStorage.getItem('username');
+        }
+
+        // Lista de produtos com detalhes
+        const products = [
+            { id: "produto1", name: "Produto 1", price: 3000.00, image: "produto 3 sem fundo.png" },
+            { id: "produto2", name: "Produto 2", price: 6890.00, image: "produto 2 sem fundo.png" },
+            { id: "produto3", name: "Produto 3", price: 2200.00, image: "produto 10 sem fundo.png" },
+            { id: "produto4", name: "Produto 4", price: 5512.00, image: "produto 7 sem fundo.png" },
+            { id: "produto5", name: "Produto 5", price: 2425.00, image: "produto 9 sem fundo.png" },
+            { id: "produto6", name: "Produto 6", price: 425.00, image: "produto 5 sem fundo.png" },
+            { id: "produto7", name: "Produto 7", price: 336.00, image: "produto 6 sem fundo.png" },
+            { id: "produto8", name: "Produto 8", price: 80.00, image: "bn10.png" }
+        ];
+
+        // Inicializar o carrinho a partir do localStorage ou vazio
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        window.onload = function () {
+            const video = document.querySelector("video");
+            video.currentTime = 0;
+            video.play();
+
+            // Verifica se há um usuário logado
+            const username = localStorage.getItem('username');
+            const usernameDisplay = document.getElementById('username-display');
+            const loginLink = document.getElementById('login-link');
+            const logoutBtn = document.getElementById('logout-btn');
+
+            if (username) {
+                usernameDisplay.textContent = `Olá, ${username}`;
+                loginLink.style.display = 'none';
+                logoutBtn.style.display = 'inline';
+            }
+
+            logoutBtn.addEventListener('click', function() {
+                localStorage.removeItem('username');
+                window.location.reload();
+            });
+
+            // Atualizar o contador do carrinho na inicialização
+            document.getElementById('cart-count').textContent = cart.reduce((sum, item) => sum + item.quantity, 0);
+        };
+
+        // Intersection Observer para o efeito de fade-in
+        const elements = document.querySelectorAll(".fade-in");
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("visible");
+                        observer.unobserve(entry.target);
+                    }
+                });
+            },
+            { threshold: 0.1 }
+        );
+
+        elements.forEach((element) => {
+            observer.observe(element);
+        });
+
+        // Adicionar itens ao carrinho
+        document.addEventListener("DOMContentLoaded", function () {
+            const cartButtons = document.querySelectorAll(".fa-cart-shopping");
+            const cartCount = document.getElementById("cart-count");
+
+            cartButtons.forEach((button) => {
+                button.addEventListener("click", function (e) {
+                    e.preventDefault();
+                    if (!isLoggedIn()) {
+                        alert("Por favor, faça login para adicionar itens ao carrinho!");
+                        return;
+                    }
+
+                    const productId = button.closest('.content-main').id;
+                    const product = products.find(p => p.id === productId);
+                    const existingItem = cart.find(item => item.id === productId);
+
+                    if (existingItem) {
+                        existingItem.quantity++;
+                    } else {
+                        cart.push({ 
+                            id: productId, 
+                            name: product.name,
+                            price: product.price,
+                            image: product.image,
+                            quantity: 1 
+                        });
+                    }
+
+                    localStorage.setItem('cart', JSON.stringify(cart));
+                    cartCount.textContent = cart.reduce((sum, item) => sum + item.quantity, 0);
+                });
+            });
+        });
+
+        // Navegação suave (só funciona se logado)
+        document.getElementById("produto").addEventListener("click", function (event) {
+            event.preventDefault();
+            if (isLoggedIn()) {
+                document.getElementById("products").scrollIntoView({ behavior: "smooth" });
+            } else {
+                alert("Por favor, faça login para navegar!");
+            }
+        });
+
+        document.getElementById("promon").addEventListener("click", function (event) {
+            event.preventDefault();
+            if (isLoggedIn()) {
+                document.getElementById("promons").scrollIntoView({ behavior: "smooth" });
+            } else {
+                alert("Por favor, faça login para navegar!");
+            }
+        });
+
+        document.getElementById("endereco").addEventListener("click", function (event) {
+            event.preventDefault();
+            if (isLoggedIn()) {
+                document.getElementById("address").scrollIntoView({ behavior: "smooth" });
+            } else {
+                alert("Por favor, faça login para navegar!");
+            }
+        });
+
+        // Funcionalidade de pesquisa (só funciona se logado)
+        document.getElementById('searchForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            if (!isLoggedIn()) {
+                alert("Por favor, faça login para pesquisar!");
+                return;
+            }
+
+            const searchQuery = document.getElementById('searchInput').value.toLowerCase().trim();
+            const searchMap = {
+                'iphone': 'iphone',
+                'tv': 'promons',
+                'ofertas' : 'promon',
+                'televisão': 'promons',
+                'smart tv': 'promons',
+                'celular': 'iphone',
+                'produto 1': 'produto1',
+                'produto 2': 'produto2',
+                'produto 3': 'produto3',
+                'produto 4': 'produto4',
+                'produto 5': 'produto5',
+                'produto 6': 'produto6',
+                'produto 7': 'produto7',
+                'promoção': 'promons',
+                'headphones': 'headphones',
+                'tablets': 'tablets',
+                'tags': 'tags'
+            };
+
+            const targetId = searchMap[searchQuery];
+            if (targetId) {
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) targetElement.scrollIntoView({ behavior: 'smooth' });
+                else alert('Produto não encontrado!');
+            } else {
+                alert('Nenhum resultado encontrado para "' + searchQuery + '"');
+            }
+
+            document.getElementById('searchInput').value = '';
+        });
+    </script>
+</body>
+</html>
